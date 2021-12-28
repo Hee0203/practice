@@ -1,0 +1,24 @@
+pom.xml
+web.xml
+spring setting(context-*, mvc-servlet.xml copy)
+(기존에 있던 스프링 설정파일 삭제)
+
+Copy the appconfig.properties, mybatis(Delete the mapper.xml) 
+
+Copy the FreeBoardVO(com.study.home)
+
+HomeController의 "/" 경로 제대로 작동하는지 확인 
+
+project - properties - project facets (3.1(dynamic web module), 1.8(java), 1.0(javascript), runtime=tomcat) 
+						- java build path (확인, java1.8, maven-dependency, server runtime)
+						maven clean - maven install - maven clean
+						project clean
+------------------------------------------------------------------------------------------------------------------------------
+1. 요청 처리하는 @Controller와 @RequestMapping 메소드 만들기
+2. @Service 만들기(Interface is freedom) (도비는 자유에요)
+3. @Mapper + xml 쿼리문 작성
+4. jsp 만들기
+
+GOAL : FreeBoard 테이블에 있는 데이터 CRUD 할 수 있도록
+(no code, no exception, no paging)
+						

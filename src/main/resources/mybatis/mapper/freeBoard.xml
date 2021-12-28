@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.home.IFreeBoardDao">
+
+<select id="getBoardList" resultType="com.study.home.FreeBoardVO">
+	SELECT * FROM FREE_BOARD
+</select>
+
+<select id="getBoard" resultType="com.study.home.FreeBoardVO" parameterType="int">
+	SELECT * FROM FREE_BOARD
+	WHERE BO_NO = #{boNo}
+</select>
+
+<update id="increaseHit" parameterType="int">
+	UPDATE FREE_BOARD SET
+	BO_HIT = BO_HIT + 1
+	WHERE BO_NO = #{boNo}
+</update>
+
+<update id="updateBoard" parameterType="com.study.home.FreeBoardVO">
+	UPDATE FREE_BOARD SET
+	BO_TITLE = #{boTitle},
+	BO_CATEGORY = #{boCategory},
+	BO_CONTENT = #{boContent},
+	BO_MOD_DATE = SYSDATE
+	WHERE BO_NO = #{boNo}
+</update>
+
+<delete id="deleteBoard" parameterType="com.study.home.FreeBoardVO">
+	UPDATE FREE_BOARD SET
+	BO_DEL_YN = 'Y'
+	WHERE BO_NO = #{boNo}
+</delete>
+
+<insert id="insertBoard" parameterType="com.study.home.FreeBoardVO">
+	INSERT INTO FREE_BOARD VALUES(
+		SEQ_FREE_BOARD.NEXTVAL, #{boTitle}, #{boCategory},
+		#{boWriter}, #{boPass}, #{boContent},
+		#{boIp}, 0, SYSDATE, NULL, 'N'
+	)
+</insert>
+
+
+</mapper>
